@@ -4,41 +4,10 @@
   <%= form.submit "Shout!" %>
 <% end %>
 
-<h3>Users I Do not Follow</h3>
 <ul>
-  <% if @users_i_do_not_follow.count == 0 %> 
-    You follow everyone.
-  <% else %>
-    <% @users_i_do_not_follow.each do |user| %>
-      <li>
-        <%= user.email %>
-        <%= button_to "Follow", [user, :following_relationship] %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
-
-<h3>Users I Follow</h3>
-<ul>
-  <% if @users_i_follow.count == 0 %> 
-    You follow no one.
-  <% else %>
-    <% @users_i_follow.each do |user| %>
-      <li>
-        <%= user.email %>
-        <%= button_to "Unfollow", [user, :following_relationship], 
-          method: :delete %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
-_____________________
-
-<h3>ShoutSpace Feed:</h3>
-<ul>
-  <% @shouts.each do |shout| %>
+  <% @timeline.each do |shout| %>
     <li>
-      <%= shout.body %>
-    </li>
+    <strong><%= shout.user.email %></strong> <%= shout.body %> </li>
+    <%= time_ago_in_words(shout.created_at) %> ago
   <% end %>
 </ul>
