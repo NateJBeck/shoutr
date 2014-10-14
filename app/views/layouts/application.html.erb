@@ -6,8 +6,22 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<style>
+  #nav {
+    float:left;
+    width:200px;
+    border:2px solid black;
+    margin:5px;
+    padding:5px;
+  }
+  #main {
+    width:600px;
+    border:5px solid black;
+  }
+</style>
 <body>
   <% if signed_in? %>
+    <%= current_user.email %>
     <%= button_to "Sign Out", session_path, method: :delete %>
   <% else %>
     <%= link_to "Sign In", new_session_path %>
