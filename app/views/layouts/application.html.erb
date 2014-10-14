@@ -8,8 +8,7 @@
 </head>
 <style>
   #nav {
-    float:left;
-    width:200px;
+    width:25%;
     border:2px solid black;
     margin:5px;
     padding:5px;
@@ -18,16 +17,31 @@
     width:600px;
     border:5px solid black;
   }
+  .nav-text {
+    font-family:"Arial", sans-serif;
+    font-size:145%;
+  }
 </style>
 <body>
-  <% if signed_in? %>
-    <%= current_user.email %>
-    <%= button_to "Sign Out", session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign In", new_session_path %>
-    <%= link_to "Sign Up", new_user_path %>
-  <% end %>
+  <nav>
+    <div class="nav-text">
+      <ul>
+        <li><%= link_to "Home", shouts_path %></li>
+        <li><%= link_to "Users", users_path %></li>
+      </ul>
+    </div>
+  </nav>
 
+  <div class="session">
+    <% if signed_in? %>
+      <p>Signed-in as: <%= current_user.email %></p>
+      <%= button_to "Sign Out", session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign In", new_session_path %>
+      <%= link_to "Sign Up", new_user_path %>
+    <% end %>
+  </div>
+  <p>
   <%= yield %>
 
 </body>

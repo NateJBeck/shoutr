@@ -11,13 +11,12 @@
   <% else %>
     <% @users_i_do_not_follow.each do |user| %>
       <li>
-      <%= user.email %>
-      <%= button_to "Follow", [user, @following_relationship] %>
+        <%= user.email %>
+        <%= button_to "Follow", [user, :following_relationship] %>
       </li>
     <% end %>
   <% end %>
 </ul>
-
 
 <h3>Users I Follow</h3>
 <ul>
@@ -26,7 +25,9 @@
   <% else %>
     <% @users_i_follow.each do |user| %>
       <li>
-      <%= user.email %>
+        <%= user.email %>
+        <%= button_to "Unfollow", [user, :following_relationship], 
+          method: :delete %>
       </li>
     <% end %>
   <% end %>

@@ -15,6 +15,11 @@ class UsersController < ApplicationController
       render :new
     end
   end
+  
+  def index
+    @users = User.where.not(id: current_user.id)
+    @following_relationship = FollowingRelationship.new
+  end
 
   private
 
