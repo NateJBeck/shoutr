@@ -1,5 +1,5 @@
 <li>
-<%= user.email %>
+<%= link_to user.email, user %>
 <%= render "follow_button", user: user %>
   <%# <% if current_user.following?(user) %>
   <%#   <%= button_to "Unfollow", [user, :following_relationship], method: :delete %>
