@@ -4,10 +4,5 @@
   <%= form.submit "Shout!" %>
 <% end %>
 
-<ul>
-  <% @timeline.each do |shout| %>
-    <li>
-    <strong><%= shout.user.email %></strong> <%= shout.body %> </li>
-    <%= time_ago_in_words(shout.created_at) %> ago
-  <% end %>
-</ul>
+<ul><%= render @timeline %></ul>
+<%# this is iterating over timeline, which has shouts, rendering the _shout partial and setting shout to be used in _shout%>
