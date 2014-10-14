@@ -7,10 +7,8 @@ class ShoutsController < ApplicationController
     @users = User.all
     @following_relationship = FollowingRelationship.new
 
-    @users_i_follow = current_user.followed_users.
-      where.not(id: current_user.id)
-    @users_i_do_not_follow = User.where.not(id: current_user.followed_user_ids).
-      where.not(id: current_user.id)
+    @users_i_follow = current_user.followed_users
+    @users_i_do_not_follow = User.where.not(id: current_user.followed_user_ids)
   end
 
   def create
