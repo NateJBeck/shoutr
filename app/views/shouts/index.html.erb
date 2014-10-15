@@ -1,9 +1,9 @@
 <h2>Shoutr</h2>
 
-<%#= form_for @shout do |form| %>
-  <%#= form.text_field :body %>
-  <%#= form.submit "Shout!" %>
-<%# end %>
+<%= form_for @text_subject do |form| %>
+  <%= form.text_field :body %>
+  <%= form.submit "Shout!" %>
+<% end %>
 
 <ul><%= render @timeline %></ul>
 <%# this is iterating over timeline, which has shouts, rendering the _shout partial and setting shout to be used in _shout%>
