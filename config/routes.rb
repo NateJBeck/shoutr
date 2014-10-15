@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resource :following_relationship, only: [:create, :destroy]
   end
 
+  resources :image_subjects, only: [:create]
   resources :text_subjects, only: [:create]
   resources :shouts, only: [:index]
 

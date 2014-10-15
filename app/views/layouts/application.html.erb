@@ -7,9 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <style>
+  #container {
+    width:600px;
+    overflow:auto;
+  }
+  .section {
+    margin-left: 25%;
+  }
+  img {
+    max-height:250px;
+    max-width:250px;
+    border:3px solid black;
+  }
+  .caption {
+    font-size:160%
+  }
   #nav {
     width:25%;
     border:2px solid black;
+    float: left;
     margin:5px;
     padding:5px;
   }
@@ -23,14 +39,10 @@
   }
 </style>
 <body>
-  <nav>
-    <div class="nav-text">
-      <ul>
-        <li><%= link_to "Home", shouts_path %></li>
-        <li><%= link_to "Users", users_path %></li>
-      </ul>
-    </div>
-  </nav>
+  <ul>
+    <li><%= link_to "Home", shouts_path %></li>
+    <li><%= link_to "Users", users_path %></li>
+  </ul>
 
   <div class="session">
     <% if signed_in? %>
@@ -42,6 +54,7 @@
     <% end %>
   </div>
   <p>
+
   <%= yield %>
 
 </body>
