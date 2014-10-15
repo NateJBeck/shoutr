@@ -1,23 +1,20 @@
-<div id="container"
-  <h2>Shoutr</h2>
+<p>Shout with text:</p>
+<%= form_for @text_subject do |form| %>
+  <%= form.text_field :body %>
+  <%= form.submit "Shout!" %>
+<% end %>
 
-  <p>Shout with text:</p>
-  <%= form_for @text_subject do |form| %>
-    <%= form.text_field :body %>
-    <%= form.submit "Shout!" %>
-  <% end %>
+<p>Shout an image:</p>
+<%= form_for @image_subject do |form| %>
+  <%= form.label :url %>
+  <%= form.text_field :url %>
 
-  <p>Shout an image:</p>
-  <%= form_for @image_subject do |form| %>
-    <%= form.label :url %>
-    <%= form.text_field :url %>
+  <%= form.label :caption %>
+  <%= form.text_field :caption %>
+  <%= form.submit "Shout an Image!" %>
+<% end %>
 
-    <%= form.label :caption %>
-    <%= form.text_field :caption %>
-    <%= form.submit "Shout an Image!" %>
-  <% end %>
-
-
-  <ul><%= render @timeline %></ul>
-  <%# this is iterating over timeline, which has shouts, rendering the _shout partial and setting shout to be used in _shout%>
-</div>
+<p>
+<%= render @timeline %>
+<%= paginate @timeline %>
+<%# this is iterating over timeline, which has shouts, rendering the _shout partial and setting shout to be used in _shout%>

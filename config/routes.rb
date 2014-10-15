@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :index, :show] do
     resource :following_relationship, only: [:create, :destroy]
   end
-
+  
+  resources :followers, only: [:index]
   resources :image_subjects, only: [:create]
   resources :text_subjects, only: [:create]
   resources :shouts, only: [:index]

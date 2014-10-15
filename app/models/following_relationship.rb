@@ -3,6 +3,8 @@ class FollowingRelationship < ActiveRecord::Base
 
   validate :user_is_not_following_themself
 
+  belongs_to :follower, class_name: "User"
+
   private
 
   def user_is_not_following_themself

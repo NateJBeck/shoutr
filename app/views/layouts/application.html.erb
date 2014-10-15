@@ -9,7 +9,14 @@
 <style>
   #container {
     width:600px;
+    position:relative;
     overflow:auto;
+    margin: 0 auto;
+    border:1px solid black;
+    border-radius:10px;
+    padding:15px;
+  }
+  .shout {
   }
   .section {
     margin-left: 25%;
@@ -35,27 +42,28 @@
   }
   .nav-text {
     font-family:"Arial", sans-serif;
+    text-align:center;
     font-size:145%;
   }
 </style>
 <body>
-  <ul>
-    <li><%= link_to "Home", shouts_path %></li>
-    <li><%= link_to "Users", users_path %></li>
-  </ul>
+  <div id="container">
+    <div class="nav-text">
+      <%= link_to "Home", shouts_path %>
+      <%= link_to "Users", users_path %>
+      <%= link_to "Followers", followers_path %>
+    </div>
 
-  <div class="session">
-    <% if signed_in? %>
-      <p>Signed-in as: <%= current_user.email %></p>
-      <%= button_to "Sign Out", session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign In", new_session_path %>
-      <%= link_to "Sign Up", new_user_path %>
-    <% end %>
+      <% if signed_in? %>
+        <p>Signed-in as: <%= current_user.email %></p>
+        <%= button_to "Sign Out", session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Sign In", new_session_path %>
+        <%= link_to "Sign Up", new_user_path %>
+      <% end %>
+    <p>
+      <h1>Shoutr!</h1>
+    <%= yield %>
   </div>
-  <p>
-
-  <%= yield %>
-
 </body>
 </html>
