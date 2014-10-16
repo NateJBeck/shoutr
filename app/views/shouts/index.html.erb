@@ -1,25 +1,25 @@
-<%= form_tag :search, method: :get do %>
-  <%= text_field_tag :query %>
-  <%= submit_tag "SEARCH" %>
-<% end %>
+<div class="shout-section">
+  <div class="nav-text">Shout with text</div>
+  <%= form_for @text_subject do |form| %>
+    <%= form.text_field :body %>
+    <%= form.submit "Shout!" %>
+  <% end %>
+</div>
 
-<p>Shout with text:</p>
-<%= form_for @text_subject do |form| %>
-  <%= form.text_field :body %>
-  <%= form.submit "Shout!" %>
-<% end %>
+<div class="shout-section">
+  <div class="nav-text">Shout an image</div>
+  <%= form_for @image_subject do |form| %>
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+    <br>
 
-<p>Shout an image:</p>
-<%= form_for @image_subject do |form| %>
-  <%= form.label :url %>
-  <%= form.text_field :url %>
+    <%= form.label :caption %>
+    <%= form.text_field :caption %>
+    <%= form.submit "Shout an Image!" %>
+  <% end %>
+</div>
 
-  <%= form.label :caption %>
-  <%= form.text_field :caption %>
-  <%= form.submit "Shout an Image!" %>
-<% end %>
-
-<p>
+<p><p>
 <%= render @timeline %>
 <%= paginate @timeline %>
 <%# this is iterating over timeline, which has shouts, rendering the _shout partial and setting shout to be used in _shout%>

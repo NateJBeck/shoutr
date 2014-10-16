@@ -1,4 +1,7 @@
 <ul>
-  <%= render @matches %>
+  <% if @matches.count == 0 %><h3>Sorry, no search results matched.</h3>
+  <% else %>
+    <%= render @matches %>
+  <% end %>
 <br>
 </ul>
