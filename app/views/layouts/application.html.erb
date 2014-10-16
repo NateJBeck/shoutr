@@ -73,7 +73,7 @@
 
     <div class="sign-in">
       <% if signed_in? %>
-        Signed-in as: <%= current_user.email %>
+        Logged In: <%= current_user.username %>
         <%= button_to "Sign Out", session_path, method: :delete %>
       <% else %>
         <%= link_to "Sign In", new_session_path %>
