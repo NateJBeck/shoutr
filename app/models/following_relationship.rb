@@ -5,10 +5,6 @@ class FollowingRelationship < ActiveRecord::Base
 
   belongs_to :follower, class_name: "User"
 
-  def to_param
-    follower_id
-  end
-
   private
 
   def user_is_not_following_themself
